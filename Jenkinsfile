@@ -15,6 +15,10 @@ pipeline {
     }
 
     stage('Build & Deploy to nexus'){
+        steps {
+            sh 'cd java-sample-app && mvn clean deploy'
+        }
 
     }
+}
 }
