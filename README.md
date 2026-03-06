@@ -11,8 +11,6 @@ steps
 7) docker exec nexus cat /nexus-data/admin.password        using this command we can get initial pass
 8) create a repo in nexus, user & roles to upload the artifact
 9) abb joh admin user, pass hai usko settings.xml me update ka
-10) ek server me sonarqube install kar diya hu 
-
-Next tasks
-
-pipeline me, nexus me artifact push hojara hai ab us artifact ko kaise pull karna hia aur sonarqube kaise uss artifact ko access kar ke scan karge 
+10) nexus se artifact pull hora (artifact download karne me issue hai, isko check karna hai)
+11) Deploying Sonarqube in Docker container instead of configuring in dedicated Instance.
+12) deployed jenkins in docker container
