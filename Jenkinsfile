@@ -3,14 +3,14 @@ pipeline {
 
   tools {
     maven 'Maven'
-    
+
   }
 
   stages {
     stage('Checkout') {
       steps {
         sh 'echo passed'
-        git 'https://github.com/Hydra2206/java-sample-app.git'
+        //git 'https://github.com/Hydra2206/java-sample-app.git'
       }
     }
 
