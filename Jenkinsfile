@@ -16,8 +16,7 @@ pipeline {
 
     stage('Build & Upload to nexus'){
         steps {
-            sh 'ls -la'
-            sh 'cd java-sample-app && mvn clean package'
+            sh 'mvn clean package'
         }
 
     }
