@@ -14,6 +14,7 @@ steps
 10) nexus se artifact pull hora (artifact download karne me issue hai, isko check karna hai)
 11) Deploying Sonarqube in Docker container instead of configuring in dedicated Instance.
 12) deployed jenkins in docker container
+13) installed sonar plugin in jenkins & configured a webhook in sonar for qualitygate check
 
 
 Challanges
