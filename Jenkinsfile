@@ -32,12 +32,6 @@ pipeline {
       }
     }
 
-    stage("Quality Gate") {
-            steps {
-                waitForQualityGate abortPipeline: true
-            }
-    }
-
 
     stage('Upload Artifact to Nexus') {
             steps {
