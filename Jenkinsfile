@@ -23,7 +23,7 @@ pipeline {
 
     stage('Static Code Analysis') {
       environment {
-        SONAR_URL = "http://localhost:9000/"
+        SONAR_URL = "http://sonarqube:9000/"
       }
       steps {
         withCredentials([string(credentialsId: 'sonarqube', variable: 'SONAR_AUTH_TOKEN')]) {
@@ -44,7 +44,7 @@ pipeline {
                 nexusArtifactUploader(
                     nexusVersion: 'nexus3',
                     protocol: 'http',
-                    nexusUrl: '127.0.0.0:8081',
+                    nexusUrl: 'nexus:8081',
                     groupId: 'com.example',
                     version: '1.0.0',
                     repository: 'java-artifacts',
