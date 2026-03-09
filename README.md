@@ -18,7 +18,12 @@ steps
 
 
 Challanges
+
 Problem - sonar server is deployed on docker container & it is running on localhost. Jenkins is using docker container as an agent to execute pipeline. So in pipeline jenkins is trying to access sonar on localhost:9000 but getting connection refused bcoz,
 pipeline is running inside container & when it is doing localhost it's happening for its container network not for my system network.
 
 solution - Created a custome bridge network & connected that network to jenkins, sonarqube & nexus. Now they all are in the same network.
+
+
+Problem - No such DSL method
+solution - means required plugin needs to be installed

@@ -50,7 +50,7 @@ pipeline {
                     protocol: 'http',
                     nexusUrl: 'nexus:8081',
                     groupId: 'com.example',
-                    version: '1.0.0',
+                    version: '${BUILD_NUMBER}.0.0',
                     repository: 'java-artifacts',
                     credentialsId: 'nexus-cred',
                     artifacts: [
