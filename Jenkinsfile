@@ -1,5 +1,5 @@
 pipeline {
-  agent any
+  agent { label 'docker' }
 
   tools {
     maven 'Maven'
@@ -68,7 +68,8 @@ pipeline {
     stage('Build Docker Image') {
             steps {
                 sh '''
-                apt install docker.io
+                apt update
+                apt install docker.io -y
                 docker build -t java-sample-app:${BUILD_NUMBER} .
                 '''
             }
