@@ -1,9 +1,9 @@
 pipeline {
-  agent {
-    docker {
-      image 'mittu7/my-maven-docker-agent:v1'
-      args '--user root -v /var/run/docker.sock:/var/run/docker.sock'
-    }
+  agent any
+
+  tools {
+    maven 'Maven'
+
   }
 
   stages {
@@ -78,4 +78,3 @@ pipeline {
        
 }
 }
-
