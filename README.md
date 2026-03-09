@@ -15,11 +15,14 @@ steps
 11) Deploying Sonarqube in Docker container instead of configuring in dedicated Instance.
 12) deployed jenkins in docker container
 13) installed sonar plugin in jenkins & configured a webhook in sonar for qualitygate check
+14) created a ec2, add that vm as a node in jenkins & installed java, docker, maven in it using that node as agent to run pipeline
+
+Next task - sonar, nexus ko dediacated vm me dal de, jenkins ko container me hi run kar. pipeline me usi ke according changes karna
 
 
 Challanges
 
-Problem - sonar server is deployed on docker container & it is running on localhost. Jenkins is using docker container as an agent to execute pipeline. So in pipeline jenkins is trying to access sonar on localhost:9000 but getting connection refused bcoz,
+Problem - sonar server is deployed on docker container & it is running on localhost. Jenkins is using docker container as an agent to execute pipeline.      So in pipeline jenkins is trying to access sonar on localhost:9000 but getting connection refused bcoz,
 pipeline is running inside container & when it is doing localhost it's happening for its container network not for my system network.
 
 solution - Created a custome bridge network & connected that network to jenkins, sonarqube & nexus. Now they all are in the same network.
