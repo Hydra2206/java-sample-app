@@ -60,8 +60,6 @@ pipeline {
     stage('Build Docker Image') {
             steps {
                 sh '''
-                apt update
-                apt install docker.io -y
                 docker build -t java-sample-app:${BUILD_NUMBER} .
                 '''
             }
