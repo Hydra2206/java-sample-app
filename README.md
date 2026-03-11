@@ -16,8 +16,9 @@ steps
 12) deployed jenkins in docker container
 13) installed sonar plugin in jenkins & configured a webhook in sonar for qualitygate check
 14) created a ec2, add that vm as a node in jenkins & installed java, docker, maven in it using that node as agent to run pipeline
-
-Next task - sonar, nexus ko dediacated vm me dal de, jenkins ko container me hi run kar. pipeline me usi ke according changes karna
+15) sonar & nexus ko individual ec2 server me run karra
+16) successfully moved nexus_vol from my host m/c to nexus vm  || successfully moved sonar_vol from my host m/c to sonar vm
+17) jenkins abhi bhi localhost me hi run hora hai
 
 
 Challanges
