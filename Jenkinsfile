@@ -14,7 +14,7 @@ pipeline {
       }
     }
 
-    stage('Build & Upload to nexus'){
+    stage('Build artifact'){
         steps {
             sh 'mvn clean package'
         }
@@ -22,25 +22,22 @@ pipeline {
     }
 
     stage('Static Code Analysis') {
-      environment {
-        SONAR_URL = "http://13.233.116.126:9000/"
-      }
       steps {
         withSonarQubeEnv('SonarQube') {
           withCredentials([string(credentialsId: 'sonarqube', variable: 'SONAR_AUTH_TOKEN')]) {
-            sh 'mvn sonar:sonar -Dsonar.token=$SONAR_AUTH_TOKEN -Dsonar.host.url=${SONAR_URL}'
+            sh 'mvn sonar:sonar -Dsonar.token=$SONAR_AUTH_TOKEN -Dsonar.host.url=${SonarQube}'
         }
       }
     }
     }
 
 
-    stage('Upload Artifact to Nexus') {
+    stage('Upload artifact to Nexus') {
             steps {
                 nexusArtifactUploader(
                     nexusVersion: 'nexus3',
                     protocol: 'http',
-                    nexusUrl: '13.233.147.128:8081',
+                    nexusUrl: '${NEXUS_IP}:8081',
                     groupId: 'com.example',
                     version: '${BUILD_NUMBER}.0.0',
                     repository: 'java-artifacts',
@@ -60,8 +57,17 @@ pipeline {
     stage('Build Docker Image') {
             steps {
                 sh '''
-                whoami
                 docker build -t java-sample-app:${BUILD_NUMBER} .
+                '''
+            }
+        }
+
+    stage('Push Docker Image') {
+            steps {
+                // docker login ${NEXUS_IP}:8082
+                sh '''   
+                docker tag java-sample-app:${BUILD_NUMBER} ${NEXUS_IP}:8082/java-sample-app:${BUILD_NUMBER}
+                docker push ${NEXUS_IP}:8082/myapp:1.0
                 '''
             }
         }

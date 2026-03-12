@@ -2,9 +2,9 @@
 created this java app by copilot to deploy in k8s cluster
 
 steps
-1) mvn clean package - to build a JAR file
-2) created Dockerfile to build image for app
-3) created deployment & service yml files
+1) mvn clean package - to build a JAR file                                                                           jenkins: 8080
+2) created Dockerfile to build image for app                                                                         nexus: 8081
+3) created deployment & service yml files                                                                            sonarqube: 9000
 4) to upload artifact to nexus, added something in pom.xml
 5) ~/.m2/settings.xml me jake nexus id, user, password add kiya
 6) using docker run command to run nexus server
@@ -19,7 +19,8 @@ steps
 15) sonar & nexus ko individual ec2 server me run karra
 16) successfully moved nexus_vol from my host m/c to nexus vm  || successfully moved sonar_vol from my host m/c to sonar vm
 17) jenkins abhi bhi localhost me hi run hora hai
-
+18) joh docker images build hora hai usko nexus repo me store karenge, uske liye nexus docker setup karra hu
+19) Enable this in nexus (Docker bearer realm token) is a security token (usually a JSON Web Token, or JWT) used to authenticate operations with a Docker       registry, such as pulling or pushing images
 
 Challanges
 
