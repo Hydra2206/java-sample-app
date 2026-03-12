@@ -67,7 +67,7 @@ pipeline {
                 // docker login ${NEXUS_IP}:8082
                 sh '''   
                 docker tag java-sample-app:${BUILD_NUMBER} ${NEXUS_IP}:8082/java-sample-app:${BUILD_NUMBER}
-                docker push ${NEXUS_IP}:8082/myapp:1.0
+                docker push ${NEXUS_IP}:8082/java-sample-app:${BUILD_NUMBER}
                 '''
             }
         }
