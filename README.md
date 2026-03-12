@@ -21,6 +21,7 @@ steps
 17) jenkins abhi bhi localhost me hi run hora hai
 18) joh docker images build hora hai usko nexus repo me store karenge, uske liye nexus docker setup karra hu
 19) Enable this in nexus (Docker bearer realm token) is a security token (usually a JSON Web Token, or JWT) used to authenticate operations with a Docker       registry, such as pulling or pushing images
+20) configuring k3d for testing as local cluster
 
 Challanges
 
@@ -32,3 +33,9 @@ solution - Created a custome bridge network & connected that network to jenkins,
 
 Problem - No such DSL method
 solution - means required plugin needs to be installed
+
+
+Need to modify server url after restarting servers
+1) replace new docker-agent ip in nodes
+2) replace sonar ip in jenkins
+3) replace nexus ip in jenkins
