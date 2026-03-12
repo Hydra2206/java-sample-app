@@ -75,7 +75,7 @@ pipeline {
     stage('Deploy to K8s') {
             steps {
                 withCredentials([file(credentialsId: 'kubeconfig', variable: 'KUBECONFIG')]) {
-                  
+                    sh 'kubectl cluster-info'
                     sh 'kubectl apply -f k8s-specifications/deployment.yml'
                     sh 'kubectl apply -f k8s-specifications/service.yml'
                 }
