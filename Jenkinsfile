@@ -72,10 +72,18 @@ pipeline {
             }
         }
 
+    stage('Update Kubeconfig') {
+            steps {
+                sh '''
+                aws eks --region ap-south-1 update-kubeconfig --name my-java-cluster
+                '''
+            }
+        }
+
     stage('Deploy to K8s') {
             steps {
                 withCredentials([file(credentialsId: 'kubeconfig', variable: 'KUBECONFIG')]) {
-                    sh 'kubectl cluster-info'
+                    sh 'kubectl get nodes'
                     sh 'kubectl apply -f k8s-specifications/deployment.yml'
                     sh 'kubectl apply -f k8s-specifications/service.yml'
                 }
