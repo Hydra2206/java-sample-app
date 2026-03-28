@@ -1,5 +1,5 @@
 # java-sample-app
-created this java app by copilot to deploy in k8s cluster
+created this java app to deploy in k8s cluster
 
 steps
 1) mvn clean package - to build a JAR file                                                                           jenkins: 8080
