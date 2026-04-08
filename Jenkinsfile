@@ -1,6 +1,10 @@
 pipeline {
   agent { label 'docker' }
 
+  triggers {
+        githubPush()
+    }
+
   tools {
     maven 'Maven'
 
