@@ -1,7 +1,7 @@
 pipeline {
-  agent { label 'docker' }
-
-  triggers {
+    agent any
+    
+    triggers {
         githubPush()
     }
 
