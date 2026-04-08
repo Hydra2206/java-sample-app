@@ -1,13 +1,14 @@
 pipeline {
     agent any
-
+    
     triggers {
         githubPush()
     }
 
   tools {
     maven 'Maven'
-    }
+
+  }
 
   stages {
     stage('Checkout') {
