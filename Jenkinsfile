@@ -66,6 +66,17 @@ pipeline {
             }
         }
 
+
+// I have added trivy for learning purpose not tested yet, will test in future
+    stage('Trivy Image Scan') {
+            steps {
+                sh '''
+                trivy image --exit-code 1 --severity HIGH,CRITICAL \
+                java-sample-app:${BUILD_NUMBER}
+                '''
+            }
+}
+
     stage('Push Docker Image') {
             steps {
                 // docker login ${NEXUS_IP}:8082
