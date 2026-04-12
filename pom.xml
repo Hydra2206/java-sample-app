@@ -76,7 +76,7 @@
     <distributionManagement>
         <repository>
             <id>nexus-releases</id>
-            <url>http://127.0.0.0:8081/repository/java-artifacts/</url>
+            <url>http://127.0.0.1:8081/repository/java-artifacts/</url>
         </repository>
     </distributionManagement>
 </project>
